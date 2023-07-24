@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inspection Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mgalante/jquery.redirect@master/jquery.redirect.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Logged in as {{ user.username }}</h5>
+            <a href="/logout" class="btn btn-link">Logout</a>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>InspectionID</th>
+                    <th>Attribute 1</th>
+                    <th>Attribute 2</th>
+                    <th>Attribute 3</th>
+                    <th>Attribute 4</th>
+                    <th>Attribute 5</th>
+                    <th>Attribute 6</th>
+                    <th>Attribute 7</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ inspection.id }}</td>
+                    <td>{{ inspection.Attribute_1 }}</td>
+                    <td>{{ inspection.Attribute_2 }}</td>
+                    <td>{{ inspection.Attribute_3 }}</td>
+                    <td>{{ inspection.Attribute_4 }}</td>
+                    <td>{{ inspection.Attribute_5 }}</td>
+                    <td>{{ inspection.Attribute_6 }}</td>
+                    <td>{{ inspection.Attribute_7 }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h6>Inspection: {{ inspection.id }}</h6>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ConditionID</th>
+                    <th>Attribute 1</th>
+                    <th>Attribute 2</th>
+                    <th>Attribute 3</th>
+                    <th>Attribute 4</th>
+                    <th>Attribute 5</th>
+                    <th>Attribute 6</th>
+                    <th>Attribute 7</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for condition in conditions %}
+                <tr>
+                    <th scope="row">{{ condition.id }}</th>
+                    <td>{{ condition.Attribute_1 }}</td>
+                    <td>{{ condition.Attribute_2 }}</td>
+                    <td>{{ condition.Attribute_3 }}</td>
+                    <td>{{ condition.Attribute_4 }}</td>
+                    <td>{{ condition.Attribute_5 }}</td>
+                    <td>{{ condition.Attribute_6 }}</td>
+                    <td>{{ condition.Attribute_7 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <h6>Conditions for Inspection: {{ inspection.inspection_id }} {{ conditions|length }}</h6>
+    </div>
+</body>
+</html>
